@@ -1,0 +1,384 @@
+HTTPGET https://localhost:44323/api/users/GetManagersAssociatedClients
+RESPONSE:
+[
+    {
+        "userID": 1,
+        "userName": "Karthik",
+        "email": "karthikyanamala5@gmail.com",
+        "firstName": "Karthik",
+        "lastName": "Reddy",
+        "level": 0,
+        "position": "Junior",
+        "clients": [
+            {
+                "userID": 3,
+                "userName": "Client1",
+                "email": "Client1@gmail.com",
+                "alias": "Client",
+                "firstName": "Client1",
+                "lastName": "Y",
+                "position": null,
+                "level": 1,
+                "mgrId": 1
+            },
+            {
+                "userID": 5,
+                "userName": "Client3",
+                "email": "Client3@gmail.com",
+                "alias": "Client",
+                "firstName": "Client3",
+                "lastName": "Y",
+                "position": null,
+                "level": 2,
+                "mgrId": 1
+            }
+        ]
+    },
+    {
+        "userID": 2,
+        "userName": "manager2",
+        "email": "karthik@gmail.com",
+        "firstName": "Karthik",
+        "lastName": "Y",
+        "level": 0,
+        "position": "Senior",
+        "clients": [
+            {
+                "userID": 4,
+                "userName": "Client2",
+                "email": "Client2@gmail.com",
+                "alias": "Client",
+                "firstName": "Client2",
+                "lastName": "Y",
+                "position": null,
+                "level": 2,
+                "mgrId": 2
+            },
+            {
+                "userID": 6,
+                "userName": "Clint4",
+                "email": "Clint4@gmail.com",
+                "alias": "Clint",
+                "firstName": "Clint4",
+                "lastName": "C",
+                "position": null,
+                "level": 2,
+                "mgrId": 2
+            },
+            {
+                "userID": 8,
+                "userName": "Client5",
+                "email": "Client5@gmail.com",
+                "alias": "Client5",
+                "firstName": "Client5",
+                "lastName": "Y",
+                "position": null,
+                "level": 3,
+                "mgrId": 2
+            }
+        ]
+    }
+]
+----------------------------------------------------
+HTTPGET https://localhost:44323/api/users/GetClientsWithManagers
+RESPONSE:
+[
+    {
+        "userID": 3,
+        "userName": "Client1",
+        "email": "Client1@gmail.com",
+        "firstName": "Client1",
+        "lastName": "Y",
+        "level": 1,
+        "mgrId": 1,
+        "manager": [
+            {
+                "userID": 1,
+                "userName": "Karthik",
+                "email": "karthikyanamala5@gmail.com",
+                "alias": "karthi",
+                "firstName": "Karthik",
+                "lastName": "Reddy",
+                "position": "Junior",
+                "level": 0,
+                "mgrId": 0
+            }
+        ]
+    },
+    {
+        "userID": 4,
+        "userName": "Client2",
+        "email": "Client2@gmail.com",
+        "firstName": "Client2",
+        "lastName": "Y",
+        "level": 2,
+        "mgrId": 2,
+        "manager": [
+            {
+                "userID": 2,
+                "userName": "manager2",
+                "email": "karthik@gmail.com",
+                "alias": "karthi",
+                "firstName": "Karthik",
+                "lastName": "Y",
+                "position": "Senior",
+                "level": 0,
+                "mgrId": 0
+            }
+        ]
+    },
+    {
+        "userID": 5,
+        "userName": "Client3",
+        "email": "Client3@gmail.com",
+        "firstName": "Client3",
+        "lastName": "Y",
+        "level": 2,
+        "mgrId": 1,
+        "manager": [
+            {
+                "userID": 1,
+                "userName": "Karthik",
+                "email": "karthikyanamala5@gmail.com",
+                "alias": "karthi",
+                "firstName": "Karthik",
+                "lastName": "Reddy",
+                "position": "Junior",
+                "level": 0,
+                "mgrId": 0
+            }
+        ]
+    },
+    {
+        "userID": 6,
+        "userName": "Clint4",
+        "email": "Clint4@gmail.com",
+        "firstName": "Clint4",
+        "lastName": "C",
+        "level": 2,
+        "mgrId": 2,
+        "manager": [
+            {
+                "userID": 2,
+                "userName": "manager2",
+                "email": "karthik@gmail.com",
+                "alias": "karthi",
+                "firstName": "Karthik",
+                "lastName": "Y",
+                "position": "Senior",
+                "level": 0,
+                "mgrId": 0
+            }
+        ]
+    },
+    {
+        "userID": 8,
+        "userName": "Client5",
+        "email": "Client5@gmail.com",
+        "firstName": "Client5",
+        "lastName": "Y",
+        "level": 3,
+        "mgrId": 2,
+        "manager": [
+            {
+                "userID": 2,
+                "userName": "manager2",
+                "email": "karthik@gmail.com",
+                "alias": "karthi",
+                "firstName": "Karthik",
+                "lastName": "Y",
+                "position": "Senior",
+                "level": 0,
+                "mgrId": 0
+            }
+        ]
+    }
+]
+---------------------------------------------------
+HTTPGET  https://localhost:44323/api/users/GetClientsForManagerByName/karthik
+
+
+RESPONSE:
+[
+    {
+        "userID": 3,
+        "userName": "Client1",
+        "email": "Client1@gmail.com",
+        "alias": "Client",
+        "firstName": "Client1",
+        "lastName": "Y",
+        "position": null,
+        "level": 1,
+        "mgrId": 1
+    },
+    {
+        "userID": 5,
+        "userName": "Client3",
+        "email": "Client3@gmail.com",
+        "alias": "Client",
+        "firstName": "Client3",
+        "lastName": "Y",
+        "position": null,
+        "level": 2,
+        "mgrId": 1
+    }
+]
+------------------------------------------------------------------------------------------
+HTTPGET https://localhost:44323/api/users/GetClientsForManagerById/1
+
+RESPONSE:
+[
+    {
+        "userID": 3,
+        "userName": "Client1",
+        "email": "Client1@gmail.com",
+        "alias": "Client",
+        "firstName": "Client1",
+        "lastName": "Y",
+        "position": null,
+        "level": 1,
+        "mgrId": 1
+    },
+    {
+        "userID": 5,
+        "userName": "Client3",
+        "email": "Client3@gmail.com",
+        "alias": "Client",
+        "firstName": "Client3",
+        "lastName": "Y",
+        "position": null,
+        "level": 2,
+        "mgrId": 1
+    }
+]
+--------------------------------------------------------------------------
+HTTPPOST  https://localhost:44323/api/users/
+
+REQUEST BODY:
+{
+  "UserName": "Client6",
+  "Email": "Client6@gmail.com",
+  "Alias": "Client6",
+  "FirstName": "Client6",
+  "LastName": "Y",
+  "Position": null,
+  "Level": 3,
+  "MgrId": 2
+}
+
+---------------------------------------
+HTTPPUT https://localhost:44323/api/users/2
+
+REQUEST BODY:
+ {
+        "userID": 2,
+        "userName": "manager2",
+        "email": "karthik@gmail.com",
+        "alias": "karthi",
+        "firstName": "Karthik",
+        "lastName": "Y",
+        "position": "Senior",
+        "level": 0,
+        "mgrId": 0
+ }
+---------------------------------------------
+HTTPDELETE https://localhost:44323/api/Users/7
+
+RESPONSE:
+{
+    "userID": 7,
+    "userName": "Client5",
+    "email": "Client5@gmail.com",
+    "alias": "Client5",
+    "firstName": "Client5",
+    "lastName": "Y",
+    "position": null,
+    "level": 2,
+    "mgrId": 2
+}
+-------------------------------------------------------------
+HTTPGET https://localhost:44323/api/users/Getusers   
+
+RESPONSE:
+[
+    {
+        "userID": 1,
+        "userName": "Karthik",
+        "email": "karthikyanamala5@gmail.com",
+        "alias": "karthi",
+        "firstName": "Karthik",
+        "lastName": "Reddy",
+        "position": "Junior",
+        "level": 0,
+        "mgrId": 0
+    },
+    {
+        "userID": 2,
+        "userName": "manager2",
+        "email": "karthik@gmail.com",
+        "alias": "karthi",
+        "firstName": "Karthik",
+        "lastName": "Y",
+        "position": "Senior",
+        "level": 0,
+        "mgrId": 0
+    },
+    {
+        "userID": 3,
+        "userName": "Client1",
+        "email": "Client1@gmail.com",
+        "alias": "Client",
+        "firstName": "Client1",
+        "lastName": "Y",
+        "position": null,
+        "level": 1,
+        "mgrId": 1
+    },
+    {
+        "userID": 4,
+        "userName": "Client2",
+        "email": "Client2@gmail.com",
+        "alias": "Client",
+        "firstName": "Client2",
+        "lastName": "Y",
+        "position": null,
+        "level": 2,
+        "mgrId": 2
+    },
+    {
+        "userID": 5,
+        "userName": "Client3",
+        "email": "Client3@gmail.com",
+        "alias": "Client",
+        "firstName": "Client3",
+        "lastName": "Y",
+        "position": null,
+        "level": 2,
+        "mgrId": 1
+    },
+    {
+        "userID": 6,
+        "userName": "Clint4",
+        "email": "Clint4@gmail.com",
+        "alias": "Clint",
+        "firstName": "Clint4",
+        "lastName": "C",
+        "position": null,
+        "level": 2,
+        "mgrId": 2
+    },
+    {
+        "userID": 8,
+        "userName": "Client5",
+        "email": "Client5@gmail.com",
+        "alias": "Client5",
+        "firstName": "Client5",
+        "lastName": "Y",
+        "position": null,
+        "level": 3,
+        "mgrId": 2
+    }
+]
+
+
+
